@@ -7,4 +7,5 @@ import java.util.List;
 public interface ConsultaDataSource {
     List<ConsultaDto> listarConsultasPorPacienteId(int page, int size, Long id);
     List<ConsultaDto> listarConsultasFuturasPorPacienteId(int page, int size, Long id);
+    List<ConsultaDto> listarConsultasPorPacienteEmail(int page, int size, String email);
 }

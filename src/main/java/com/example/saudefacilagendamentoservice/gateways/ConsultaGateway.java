@@ -24,4 +24,9 @@ public class ConsultaGateway {
         List<ConsultaDto> consultaDtoList = consultaDataSource.listarConsultasFuturasPorPacienteId(page, size, id);
         return consultaDtoList.stream().map(ConsultaMapper::toEntity).toList();
     }
+
+    public List<Consulta> listarConsultasPorPacienteEmail(int page, int size, String email) {
+        List<ConsultaDto> consultaDtoList = consultaDataSource.listarConsultasPorPacienteEmail(page, size, email);
+        return consultaDtoList.stream().map(ConsultaMapper::toEntity).toList();
+    }
 }
