@@ -1,12 +1,14 @@
 package com.example.saudefacilagendamentoservice.controllers;
 
 import com.example.saudefacilagendamentoservice.datasources.ConsultaDataSource;
+import com.example.saudefacilagendamentoservice.datasources.NotificacaoDataSource;
 import com.example.saudefacilagendamentoservice.datasources.TokenDataSource;
 import com.example.saudefacilagendamentoservice.datasources.UsuarioDataSource;
 import com.example.saudefacilagendamentoservice.dtos.requests.CriarConsultaRequest;
 import com.example.saudefacilagendamentoservice.dtos.responses.ConsultaResponse;
 import com.example.saudefacilagendamentoservice.entities.Consulta;
 import com.example.saudefacilagendamentoservice.gateways.ConsultaGateway;
+import com.example.saudefacilagendamentoservice.gateways.NotificacaoGateway;
 import com.example.saudefacilagendamentoservice.gateways.TokenGateway;
 import com.example.saudefacilagendamentoservice.gateways.UsuarioGateway;
 import com.example.saudefacilagendamentoservice.mappers.ConsultaMapper;
@@ -22,11 +24,14 @@ public class ConsultaController {
     private final TokenDataSource tokenDataSource;
     private final UsuarioDataSource usuarioDataSource;
     private final ConsultaDataSource consultaDataSource;
+    private final NotificacaoDataSource notificacaoDataSource;
 
-    public ConsultaController(TokenDataSource tokenDataSource, UsuarioDataSource usuarioDataSource, ConsultaDataSource consultaDataSource) {
+    public ConsultaController(TokenDataSource tokenDataSource, UsuarioDataSource usuarioDataSource,
+                              ConsultaDataSource consultaDataSource, NotificacaoDataSource notificacaoDataSource) {
         this.tokenDataSource = tokenDataSource;
         this.usuarioDataSource = usuarioDataSource;
         this.consultaDataSource = consultaDataSource;
+        this.notificacaoDataSource = notificacaoDataSource;
     }
 
     public List<ConsultaResponse> listarConsultasPorPacienteId(int page, int size, Long id) {
@@ -54,7 +59,8 @@ public class ConsultaController {
     public void criarConsulta(CriarConsultaRequest request) {
         UsuarioGateway usuarioGateway = new UsuarioGateway(usuarioDataSource);
         ConsultaGateway consultaGateway = new ConsultaGateway(consultaDataSource);
-        CriarConsultaUseCase useCase = new CriarConsultaUseCase(usuarioGateway, consultaGateway);
+        NotificacaoGateway notificacaoGateway = new NotificacaoGateway(notificacaoDataSource);
+        CriarConsultaUseCase useCase = new CriarConsultaUseCase(usuarioGateway, consultaGateway, notificacaoGateway);
         useCase.execute(request);
     }
 }
