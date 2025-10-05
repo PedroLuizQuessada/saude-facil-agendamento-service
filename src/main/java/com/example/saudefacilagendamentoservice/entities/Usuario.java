@@ -16,7 +16,7 @@ public class Usuario {
     private final String senha;
     private final TipoUsuarioEnum tipo;
 
-    public Usuario(Long id, String nome, String email, String senha, TipoUsuarioEnum tipo) {
+    public Usuario(Long id, String nome, String email, String senha, TipoUsuarioEnum tipo) { //TODO criptografar senha
 
         validarNome(nome);
         validarEmail(email);

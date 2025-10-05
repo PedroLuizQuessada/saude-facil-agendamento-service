@@ -40,6 +40,6 @@ public class Consulta {
             throw new BadArgumentException("A consulta deve possuir um paciente.");
 
         if (!paciente.getTipo().equals(TipoUsuarioEnum.PACIENTE))
-            throw new BadArgumentException("Paciente inválido");
+            throw new BadArgumentException("Paciente inválido.");
     }
 }

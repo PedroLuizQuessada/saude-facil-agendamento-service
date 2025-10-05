@@ -2,11 +2,15 @@ package com.example.saudefacilagendamentoservice.controllers;
 
 import com.example.saudefacilagendamentoservice.datasources.ConsultaDataSource;
 import com.example.saudefacilagendamentoservice.datasources.TokenDataSource;
+import com.example.saudefacilagendamentoservice.datasources.UsuarioDataSource;
+import com.example.saudefacilagendamentoservice.dtos.requests.CriarConsultaRequest;
 import com.example.saudefacilagendamentoservice.dtos.responses.ConsultaResponse;
 import com.example.saudefacilagendamentoservice.entities.Consulta;
 import com.example.saudefacilagendamentoservice.gateways.ConsultaGateway;
 import com.example.saudefacilagendamentoservice.gateways.TokenGateway;
+import com.example.saudefacilagendamentoservice.gateways.UsuarioGateway;
 import com.example.saudefacilagendamentoservice.mappers.ConsultaMapper;
+import com.example.saudefacilagendamentoservice.usecases.CriarConsultaUseCase;
 import com.example.saudefacilagendamentoservice.usecases.ListarConsultasFuturasPorPacienteIdUseCase;
 import com.example.saudefacilagendamentoservice.usecases.ListarConsultasPorPacienteIdUseCase;
 import com.example.saudefacilagendamentoservice.usecases.ListarConsultasPorTokenUseCase;
@@ -16,10 +20,12 @@ import java.util.List;
 public class ConsultaController {
 
     private final TokenDataSource tokenDataSource;
+    private final UsuarioDataSource usuarioDataSource;
     private final ConsultaDataSource consultaDataSource;
 
-    public ConsultaController(TokenDataSource tokenDataSource, ConsultaDataSource consultaDataSource) {
+    public ConsultaController(TokenDataSource tokenDataSource, UsuarioDataSource usuarioDataSource, ConsultaDataSource consultaDataSource) {
         this.tokenDataSource = tokenDataSource;
+        this.usuarioDataSource = usuarioDataSource;
         this.consultaDataSource = consultaDataSource;
     }
 
@@ -43,5 +49,12 @@ public class ConsultaController {
         ListarConsultasPorTokenUseCase useCase = new ListarConsultasPorTokenUseCase(tokenGateway, consultaGateway);
         List<Consulta> consultaList = useCase.execute(page, size, token);
         return consultaList.stream().map(ConsultaMapper::toResponse).toList();
+    }
+
+    public void criarConsulta(CriarConsultaRequest request) {
+        UsuarioGateway usuarioGateway = new UsuarioGateway(usuarioDataSource);
+        ConsultaGateway consultaGateway = new ConsultaGateway(consultaDataSource);
+        CriarConsultaUseCase useCase = new CriarConsultaUseCase(usuarioGateway, consultaGateway);
+        useCase.execute(request);
     }
 }
