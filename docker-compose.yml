@@ -1,0 +1,65 @@
+services:
+  agendamento_app:
+    build:
+      context: .
+      target: execution
+    container_name: agendamento_app
+    ports:
+      - "8080:8080"
+    networks:
+      - saude_facil_net
+    depends_on:
+      mysql:
+        condition: service_healthy
+    secrets:
+      - spring.datasource.url
+      - spring.datasource.username
+      - spring.datasource.password
+
+  mysql:
+    image: "mysql:8.0"
+    container_name: saude_facil_db
+    build:
+      context: .
+      dockerfile: Dockerfile-mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - saude_facil_net
+    environment:
+      MYSQL_DATABASE_FILE: /run/secrets/db_name
+      MYSQL_USER_FILE: /run/secrets/spring.datasource.username
+      MYSQL_PASSWORD_FILE: /run/secrets/spring.datasource.password
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    secrets:
+      - db_name
+      - spring.datasource.username
+      - spring.datasource.password
+      - db_root_password
+    healthcheck:
+      test: mysqladmin ping -h localhost -u root --password=$$(cat /run/secrets/db_root_password)
+      start_period: 20s
+      interval: 30s
+      retries: 500
+      timeout: 50s
+
+secrets:
+  spring.datasource.url:
+    file: ./secrets/db_url.txt
+  spring.datasource.username:
+    file: ./secrets/db_user.txt
+  spring.datasource.password:
+    file: ./secrets/db_password.txt
+  db_name:
+    file: ./secrets/db_name.txt
+  db_root_password:
+    file: ./secrets/db_root_password.txt
+
+networks:
+  saude_facil_net:
+    driver: bridge
+
+volumes:
+  mysql_data: {}
