@@ -4,6 +4,7 @@ import com.example.saudefacilagendamentoservice.datasources.ConsultaDataSource;
 import com.example.saudefacilagendamentoservice.datasources.NotificacaoDataSource;
 import com.example.saudefacilagendamentoservice.datasources.TokenDataSource;
 import com.example.saudefacilagendamentoservice.datasources.UsuarioDataSource;
+import com.example.saudefacilagendamentoservice.dtos.requests.AlterarConsultaRequest;
 import com.example.saudefacilagendamentoservice.dtos.requests.CriarConsultaRequest;
 import com.example.saudefacilagendamentoservice.dtos.responses.ConsultaResponse;
 import com.example.saudefacilagendamentoservice.entities.Consulta;
@@ -12,10 +13,7 @@ import com.example.saudefacilagendamentoservice.gateways.NotificacaoGateway;
 import com.example.saudefacilagendamentoservice.gateways.TokenGateway;
 import com.example.saudefacilagendamentoservice.gateways.UsuarioGateway;
 import com.example.saudefacilagendamentoservice.mappers.ConsultaMapper;
-import com.example.saudefacilagendamentoservice.usecases.CriarConsultaUseCase;
-import com.example.saudefacilagendamentoservice.usecases.ListarConsultasFuturasPorPacienteIdUseCase;
-import com.example.saudefacilagendamentoservice.usecases.ListarConsultasPorPacienteIdUseCase;
-import com.example.saudefacilagendamentoservice.usecases.ListarConsultasPorTokenUseCase;
+import com.example.saudefacilagendamentoservice.usecases.*;
 
 import java.util.List;
 
@@ -62,5 +60,14 @@ public class ConsultaController {
         NotificacaoGateway notificacaoGateway = new NotificacaoGateway(notificacaoDataSource);
         CriarConsultaUseCase useCase = new CriarConsultaUseCase(usuarioGateway, consultaGateway, notificacaoGateway);
         useCase.execute(request);
+    }
+
+    public void alterarConsulta(Long id, String token, AlterarConsultaRequest request) {
+        UsuarioGateway usuarioGateway = new UsuarioGateway(usuarioDataSource);
+        TokenGateway tokenGateway = new TokenGateway(tokenDataSource);
+        ConsultaGateway consultaGateway = new ConsultaGateway(consultaDataSource);
+        NotificacaoGateway notificacaoGateway = new NotificacaoGateway(notificacaoDataSource);
+        AlterarConsultaUseCase useCase = new AlterarConsultaUseCase(usuarioGateway, tokenGateway, consultaGateway, notificacaoGateway);
+        useCase.execute(id, token, request);
     }
 }

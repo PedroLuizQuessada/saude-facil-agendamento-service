@@ -33,16 +33,25 @@ public class ConsultaGateway {
         return consultaDtoList.stream().map(ConsultaMapper::toEntity).toList();
     }
 
-    public Consulta consultarConsultaPorHorarioEUsuarioId(LocalDateTime dataInicio, LocalDateTime dataFim, Long id) {
-        Optional<ConsultaDto> optionalConsultaDto = consultaDataSource.consultarConsultaPorHorarioEUsuarioId(dataInicio, dataFim, id);
-
-        if (optionalConsultaDto.isEmpty())
-            throw new ConsultaNaoEncontradaException(String.format("Consulta não encontrada para o usuário %d.", id));
-
-        return ConsultaMapper.toEntity(optionalConsultaDto.get());
+    public List<Consulta> listarConsultasPorHorarioEUsuarioId(LocalDateTime dataInicio, LocalDateTime dataFim, Long id) {
+        List<ConsultaDto> consultaDtoList = consultaDataSource.listarConsultasPorHorarioEUsuarioId(dataInicio, dataFim, id);
+        return consultaDtoList.stream().map(ConsultaMapper::toEntity).toList();
     }
 
     public void criarConsulta(ConsultaDto consultaDto) {
         consultaDataSource.criarConsulta(consultaDto);
+    }
+
+    public Consulta consultarConsultaPorId(Long id) {
+        Optional<ConsultaDto> optionalConsultaDto = consultaDataSource.consultarConsultaPorId(id);
+
+        if (optionalConsultaDto.isEmpty())
+            throw new ConsultaNaoEncontradaException(String.format("Consulta %d não encontrada", id));
+
+        return ConsultaMapper.toEntity(optionalConsultaDto.get());
+    }
+
+    public void alterarConsulta(ConsultaDto consultaDto) {
+        consultaDataSource.alterarConsulta(consultaDto);
     }
 }

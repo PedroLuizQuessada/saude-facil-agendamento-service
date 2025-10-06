@@ -11,20 +11,35 @@ import java.util.Objects;
 public class Consulta {
 
     private final Long id;
-    private final Usuario medico;
+    private Usuario medico;
     private final Usuario paciente;
-    private final LocalDateTime data;
+    private LocalDateTime data;
     private String prescricao;
 
     public Consulta(Long id, Usuario medico, Usuario paciente, LocalDateTime data) {
 
         validarMedico(medico);
         validarPaciente(paciente);
+        validarData(data);
 
         this.id = id;
         this.medico = medico;
         this.paciente = paciente;
         this.data = data;
+    }
+
+    public void setMedico(Usuario medico) {
+        validarMedico(medico);
+        this.medico = medico;
+    }
+
+    public void setData(LocalDateTime data) {
+        validarData(data);
+        this.data = data;
+    }
+
+    public void setPrescricao(String prescricao) {
+        this.prescricao = prescricao;
     }
 
     private void validarMedico(Usuario medico) {
@@ -41,5 +56,10 @@ public class Consulta {
 
         if (!paciente.getTipo().equals(TipoUsuarioEnum.PACIENTE))
             throw new BadArgumentException("Paciente inválido.");
+    }
+
+    private void validarData(LocalDateTime data) {
+        if (Objects.isNull(data))
+            throw new BadArgumentException("A consulta deve possuir uma data.");
     }
 }

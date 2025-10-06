@@ -24,4 +24,13 @@ public class UsuarioGateway {
 
         return UsuarioMapper.toEntity(optionalUsuarioDto.get());
     }
+
+    public Usuario encontrarUsuarioPorEmail(String email) {
+        Optional<UsuarioDto> optionalUsuarioDto = usuarioDataSource.encontrarUsuarioPorEmail(email);
+
+        if (optionalUsuarioDto.isEmpty())
+            throw new UsuarioNaoEncontradoException(String.format("Usuário %s não encontrado.", email));
+
+        return UsuarioMapper.toEntity(optionalUsuarioDto.get());
+    }
 }

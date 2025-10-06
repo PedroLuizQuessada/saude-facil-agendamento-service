@@ -30,4 +30,11 @@ public class ConsultaMapper {
                 !Objects.isNull(paciente) ? UsuarioMapper.toDto(paciente) : null,
                 request.data(), null);
     }
+
+    public static ConsultaDto toDto(Consulta consulta) {
+        return new ConsultaDto(consulta.getId(),
+                !Objects.isNull(consulta.getMedico()) ? UsuarioMapper.toDto(consulta.getMedico()) : null,
+                !Objects.isNull(consulta.getPaciente()) ? UsuarioMapper.toDto(consulta.getPaciente()) : null,
+                consulta.getData(), consulta.getPrescricao());
+    }
 }

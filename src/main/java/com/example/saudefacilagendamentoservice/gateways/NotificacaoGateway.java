@@ -11,7 +11,7 @@ public class NotificacaoGateway {
         this.notificacaoDataSource = notificacaoDataSource;
     }
 
-    public void notificarCriacaoConsulta(NotificacaoConsultaDto notificacaoConsultaDto) {
-        notificacaoDataSource.notificarCriacaoConsulta(notificacaoConsultaDto);
+    public void notificarConsulta(NotificacaoConsultaDto notificacaoConsultaDto) {
+        notificacaoDataSource.notificarConsulta(notificacaoConsultaDto);
     }
 }
