@@ -1,0 +1,1 @@
+INSERT IGNORE INTO usuarios (nome, email, senha, tipo) VALUES ("Médico 1", "medico1@gmail.com", "$2a$10$UqmSCvzIURnuZj3a5m/VXu1fma2hWZJVsYYJZVxmsypJZGqVWKcKC", "MEDICO");
