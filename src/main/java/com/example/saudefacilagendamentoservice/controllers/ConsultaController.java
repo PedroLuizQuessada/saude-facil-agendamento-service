@@ -62,12 +62,11 @@ public class ConsultaController {
         useCase.execute(request);
     }
 
-    public void alterarConsulta(Long id, String token, AlterarConsultaRequest request) {
+    public void alterarConsulta(Long id, AlterarConsultaRequest request) {
         UsuarioGateway usuarioGateway = new UsuarioGateway(usuarioDataSource);
-        TokenGateway tokenGateway = new TokenGateway(tokenDataSource);
         ConsultaGateway consultaGateway = new ConsultaGateway(consultaDataSource);
         NotificacaoGateway notificacaoGateway = new NotificacaoGateway(notificacaoDataSource);
-        AlterarConsultaUseCase useCase = new AlterarConsultaUseCase(usuarioGateway, tokenGateway, consultaGateway, notificacaoGateway);
-        useCase.execute(id, token, request);
+        AlterarConsultaUseCase useCase = new AlterarConsultaUseCase(usuarioGateway, consultaGateway, notificacaoGateway);
+        useCase.execute(id, request);
     }
 }
