@@ -41,6 +41,6 @@ public class CriarConsultaUseCase {
         ConsultaMapper.toEntity(consultaDto);
 
         consultaGateway.criarConsulta(consultaDto);
-        notificacaoGateway.notificarConsulta(NotificacaoConsultaMapper.toDto(paciente, request));
+        notificacaoGateway.notificarConsulta(NotificacaoConsultaMapper.toDto(paciente, medico, request));
     }
 }

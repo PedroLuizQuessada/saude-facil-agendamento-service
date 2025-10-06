@@ -55,6 +55,6 @@ public class AlterarConsultaUseCase {
         consulta.setPrescricao(request.prescricao());
 
         consultaGateway.alterarConsulta(ConsultaMapper.toDto(consulta));
-        notificacaoGateway.notificarConsulta(NotificacaoConsultaMapper.toDto(paciente, request));
+        notificacaoGateway.notificarConsulta(NotificacaoConsultaMapper.toDto(paciente, medico, request));
     }
 }

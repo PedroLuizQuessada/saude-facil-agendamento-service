@@ -7,12 +7,12 @@ import com.example.saudefacilagendamentoservice.entities.Usuario;
 
 public class NotificacaoConsultaMapper {
 
-    public static NotificacaoConsultaDto toDto(Usuario paciente, CriarConsultaRequest request) {
-        return new NotificacaoConsultaDto(paciente.getEmail(), request.data());
+    public static NotificacaoConsultaDto toDto(Usuario paciente, Usuario medico, CriarConsultaRequest request) {
+        return new NotificacaoConsultaDto(paciente.getEmail(), medico.getNome(), request.data());
     }
 
-    public static NotificacaoConsultaDto toDto(Usuario paciente, AlterarConsultaRequest request) {
-        return new NotificacaoConsultaDto(paciente.getEmail(), request.data());
+    public static NotificacaoConsultaDto toDto(Usuario paciente, Usuario medico, AlterarConsultaRequest request) {
+        return new NotificacaoConsultaDto(paciente.getEmail(), medico.getNome(), request.data());
     }
 
 }
