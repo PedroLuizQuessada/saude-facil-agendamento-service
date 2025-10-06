@@ -10,6 +10,8 @@ import java.util.Objects;
 
 public class ConsultaMapper {
 
+    private ConsultaMapper(){}
+
     public static Consulta toEntity(ConsultaDto consultaDto) {
         return new Consulta(consultaDto.id(),
                 !Objects.isNull(consultaDto.medico()) ? UsuarioMapper.toEntity(consultaDto.medico(), false) : null,

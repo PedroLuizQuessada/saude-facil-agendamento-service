@@ -168,12 +168,12 @@ public class ConsultaApiV1 {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = ProblemDetail.class)))
     })
-    @PutMapping("/{paciente-id}")
-    public ResponseEntity<ConsultaResponse> criarUsuario(@PathVariable("paciente-id") Long pacienteId,
+    @PutMapping("/{consulta-id}")
+    public ResponseEntity<ConsultaResponse> criarUsuario(@PathVariable("consulta-id") Long consultaId,
                                                          @RequestBody @Valid AlterarConsultaRequest request) {
-        log.info("Alterando consulta: {}", pacienteId);
-        consultaController.alterarConsulta(pacienteId, request);
-        log.info("Consulta {} alterada", pacienteId);
+        log.info("Alterando consulta: {}", consultaId);
+        consultaController.alterarConsulta(consultaId, request);
+        log.info("Consulta {} alterada", consultaId);
 
         return ResponseEntity
                 .status(HttpStatus.CREATED).build();
