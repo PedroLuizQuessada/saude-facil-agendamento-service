@@ -33,4 +33,8 @@ public class UsuarioGateway {
 
         return UsuarioMapper.toEntity(optionalUsuarioDto.get());
     }
+
+    public void criarUsuario(UsuarioDto usuarioDto) {
+        usuarioDataSource.criarUsuario(usuarioDto);
+    }
 }
