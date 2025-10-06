@@ -1,1 +1,3 @@
 INSERT IGNORE INTO usuarios (nome, email, senha, tipo) VALUES ("Médico 1", "medico1@gmail.com", "$2a$10$UqmSCvzIURnuZj3a5m/VXu1fma2hWZJVsYYJZVxmsypJZGqVWKcKC", "MEDICO");
+INSERT IGNORE INTO usuarios (nome, email, senha, tipo) VALUES ("Enfermeiro 1", "enfermeiro1@gmail.com", "$2a$10$UqmSCvzIURnuZj3a5m/VXu1fma2hWZJVsYYJZVxmsypJZGqVWKcKC", "ENFERMEIRO");
+INSERT IGNORE INTO usuarios (nome, email, senha, tipo) VALUES ("Paciente 1", "paciente1@gmail.com", "$2a$10$UqmSCvzIURnuZj3a5m/VXu1fma2hWZJVsYYJZVxmsypJZGqVWKcKC", "PACIENTE");
