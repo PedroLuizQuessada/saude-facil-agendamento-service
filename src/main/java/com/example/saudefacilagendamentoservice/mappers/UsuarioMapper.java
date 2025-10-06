@@ -7,8 +7,8 @@ import com.example.saudefacilagendamentoservice.entities.Usuario;
 
 public class UsuarioMapper {
 
-    public static Usuario toEntity(UsuarioDto usuarioDto) {
-        return new Usuario(usuarioDto.id(), usuarioDto.nome(), usuarioDto.email(), usuarioDto.senha(), usuarioDto.tipo());
+    public static Usuario toEntity(UsuarioDto usuarioDto, boolean encodePassword) {
+        return new Usuario(usuarioDto.id(), usuarioDto.nome(), usuarioDto.email(), usuarioDto.senha(), usuarioDto.tipo(), encodePassword);
     }
 
     public static UsuarioResponse toResponse(Usuario usuario) {

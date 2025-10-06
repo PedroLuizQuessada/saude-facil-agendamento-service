@@ -4,6 +4,7 @@ import com.example.saudefacilagendamentoservice.enums.TipoUsuarioEnum;
 import com.example.saudefacilagendamentoservice.exceptions.BadArgumentException;
 import lombok.Getter;
 import org.apache.commons.validator.routines.EmailValidator;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Objects;
 
@@ -16,7 +17,7 @@ public class Usuario {
     private final String senha;
     private final TipoUsuarioEnum tipo;
 
-    public Usuario(Long id, String nome, String email, String senha, TipoUsuarioEnum tipo) { //TODO criptografar senha
+    public Usuario(Long id, String nome, String email, String senha, TipoUsuarioEnum tipo, boolean encodePassword) {
 
         validarNome(nome);
         validarEmail(email);
@@ -26,8 +27,15 @@ public class Usuario {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        this.senha = senha;
         this.tipo = tipo;
+
+        if (encodePassword) {
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            this.senha = encoder.encode(senha);
+        }
+        else {
+            this.senha = senha;
+        }
     }
 
     private void validarNome(String nome) {

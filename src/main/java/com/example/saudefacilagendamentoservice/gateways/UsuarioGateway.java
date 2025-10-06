@@ -22,7 +22,7 @@ public class UsuarioGateway {
         if (optionalUsuarioDto.isEmpty())
             throw new UsuarioNaoEncontradoException(String.format("Usuário %d não encontrado.", id));
 
-        return UsuarioMapper.toEntity(optionalUsuarioDto.get());
+        return UsuarioMapper.toEntity(optionalUsuarioDto.get(), false);
     }
 
     public Usuario encontrarUsuarioPorEmail(String email) {
@@ -31,7 +31,7 @@ public class UsuarioGateway {
         if (optionalUsuarioDto.isEmpty())
             throw new UsuarioNaoEncontradoException(String.format("Usuário %s não encontrado.", email));
 
-        return UsuarioMapper.toEntity(optionalUsuarioDto.get());
+        return UsuarioMapper.toEntity(optionalUsuarioDto.get(), false);
     }
 
     public void criarUsuario(UsuarioDto usuarioDto) {

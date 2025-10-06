@@ -12,8 +12,8 @@ public class ConsultaMapper {
 
     public static Consulta toEntity(ConsultaDto consultaDto) {
         return new Consulta(consultaDto.id(),
-                !Objects.isNull(consultaDto.medico()) ? UsuarioMapper.toEntity(consultaDto.medico()) : null,
-                !Objects.isNull(consultaDto.paciente()) ? UsuarioMapper.toEntity(consultaDto.paciente()) : null,
+                !Objects.isNull(consultaDto.medico()) ? UsuarioMapper.toEntity(consultaDto.medico(), false) : null,
+                !Objects.isNull(consultaDto.paciente()) ? UsuarioMapper.toEntity(consultaDto.paciente(), false) : null,
                 consultaDto.data());
     }
 

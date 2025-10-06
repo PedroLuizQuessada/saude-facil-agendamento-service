@@ -2,6 +2,7 @@ package com.example.saudefacilagendamentoservice.usecases;
 
 import com.example.saudefacilagendamentoservice.dtos.UsuarioDto;
 import com.example.saudefacilagendamentoservice.dtos.requests.CriarUsuarioRequest;
+import com.example.saudefacilagendamentoservice.entities.Usuario;
 import com.example.saudefacilagendamentoservice.exceptions.BadArgumentException;
 import com.example.saudefacilagendamentoservice.exceptions.UsuarioNaoEncontradoException;
 import com.example.saudefacilagendamentoservice.gateways.UsuarioGateway;
@@ -24,8 +25,8 @@ public class CriarUsuarioUseCase {
         catch (UsuarioNaoEncontradoException ignored) {}
 
         UsuarioDto usuarioDto = UsuarioMapper.toDto(request);
-        UsuarioMapper.toEntity(usuarioDto);
+        Usuario usuario = UsuarioMapper.toEntity(usuarioDto, true);
 
-        usuarioGateway.criarUsuario(usuarioDto);
+        usuarioGateway.criarUsuario(UsuarioMapper.toDto(usuario));
     }
 }
