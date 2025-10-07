@@ -11,10 +11,17 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
     secrets:
       - spring.datasource.url
       - spring.datasource.username
       - spring.datasource.password
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: admin
+      SPRING_RABBITMQ_PASSWORD: 123456
 
   mysql:
     image: "mysql:8.0"
@@ -45,6 +52,34 @@ services:
       retries: 500
       timeout: 50s
 
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - saude_facil_net
+    volumes:
+      - rabbit_data:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=123456
+    entrypoint: >
+      bash -c "
+        echo 'Corrigindo permissões do volume...';
+        chown -R rabbitmq:rabbitmq /var/lib/rabbitmq &&
+        chmod 700 /var/lib/rabbitmq &&
+        exec docker-entrypoint.sh rabbitmq-server
+      "
+    healthcheck:
+      test: [ "CMD", "rabbitmqctl", "status" ]
+      start_period: 20s
+      interval: 30s
+      retries: 500
+      timeout: 50s
+
 secrets:
   spring.datasource.url:
     file: ./secrets/db_url.txt
@@ -63,3 +98,4 @@ networks:
 
 volumes:
   mysql_data: {}
+  rabbit_data: {}

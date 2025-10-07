@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping(path = "/api/v1/usuarios")
-@Tag(name = "User API V1", description = "Versão 1 do controlador referente a usuários")
+@Tag(name = "API usuários V1", description = "Versão 1 do controlador referente a usuários")
 public class UsuarioApiV1 {
 
     private final UsuarioController usuarioController;

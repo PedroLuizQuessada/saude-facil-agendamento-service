@@ -5,7 +5,7 @@ Projeto desenvolvido ao longo do curso "Arquitetura e Desenvolvimento em Java" d
 API para um serviço de agendamento de consultas. Containerização do projeto via Docker e Docker Compose. Persistência de dados via MySQL.
 
 # Documentação interativa
-Swagger disponível através do link: http://localhost:8080/saude-facil-agendamento-service/swagger-ui/index.html#/user-controller-v-1/home
+Swagger disponível através do link: http://localhost:8080/saude-facil-agendamento-service/swagger-ui/index.html#/
 
 # Collection do Postman para testes
 Disponível através do arquivo: tech-challenge.postman_collection.json

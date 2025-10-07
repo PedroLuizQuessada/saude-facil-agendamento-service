@@ -29,7 +29,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping(path = "/api/v1/consultas")
-@Tag(name = "User API V1", description = "Versão 1 do controlador referente a consultas")
+@Tag(name = "API consultas V1", description = "Versão 1 do controlador referente a consultas")
 public class ConsultaApiV1 {
 
     private final ConsultaController consultaController;
