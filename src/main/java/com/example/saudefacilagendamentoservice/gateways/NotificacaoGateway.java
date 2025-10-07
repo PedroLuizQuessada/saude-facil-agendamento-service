@@ -1,7 +1,7 @@
 package com.example.saudefacilagendamentoservice.gateways;
 
 import com.example.saudefacilagendamentoservice.datasources.NotificacaoDataSource;
-import com.example.saudefacilagendamentoservice.dtos.NotificacaoConsultaDto;
+import dtos.NotificacaoConsultaDto;
 
 public class NotificacaoGateway {
 

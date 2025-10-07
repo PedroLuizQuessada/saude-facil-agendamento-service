@@ -3,9 +3,9 @@ package com.example.saudefacilagendamentoservice.infraestructure.api.usuario;
 import com.example.saudefacilagendamentoservice.controllers.UsuarioController;
 import com.example.saudefacilagendamentoservice.datasources.TokenDataSource;
 import com.example.saudefacilagendamentoservice.datasources.UsuarioDataSource;
-import com.example.saudefacilagendamentoservice.dtos.requests.CriarUsuarioRequest;
-import com.example.saudefacilagendamentoservice.dtos.responses.TokenResponse;
-import com.example.saudefacilagendamentoservice.dtos.responses.UsuarioResponse;
+import dtos.requests.CriarUsuarioRequest;
+import dtos.responses.TokenResponse;
+import dtos.responses.UsuarioResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -73,7 +73,7 @@ public class UsuarioApiV1 {
                             schema = @Schema(implementation = ProblemDetail.class)))
     })
     @PostMapping
-    public ResponseEntity<UsuarioResponse> criarUsuario(@RequestBody @Valid CriarUsuarioRequest request) {
+    public ResponseEntity<Void> criarUsuario(@RequestBody @Valid CriarUsuarioRequest request) {
         log.info("Criando usuário: {}", request.email());
         usuarioController.criarUsuario(request);
         log.info("Usuário criado: {}", request.email());

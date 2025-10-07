@@ -1,7 +1,7 @@
 package com.example.saudefacilagendamentoservice.entities;
 
-import com.example.saudefacilagendamentoservice.enums.TipoUsuarioEnum;
 import com.example.saudefacilagendamentoservice.exceptions.BadArgumentException;
+import enums.TipoUsuarioEnum;
 import lombok.Getter;
 
 import java.time.LocalDateTime;

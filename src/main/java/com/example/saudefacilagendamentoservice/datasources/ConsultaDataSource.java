@@ -1,6 +1,6 @@
 package com.example.saudefacilagendamentoservice.datasources;
 
-import com.example.saudefacilagendamentoservice.dtos.ConsultaDto;
+import dtos.ConsultaDto;
 
 import java.time.LocalDateTime;
 import java.util.List;

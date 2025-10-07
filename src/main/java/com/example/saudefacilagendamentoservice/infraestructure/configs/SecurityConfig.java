@@ -1,12 +1,12 @@
 package com.example.saudefacilagendamentoservice.infraestructure.configs;
 
-import com.example.saudefacilagendamentoservice.enums.TipoUsuarioEnum;
 import com.example.saudefacilagendamentoservice.infraestructure.security.CustomAccessDeniedHandler;
 import com.example.saudefacilagendamentoservice.infraestructure.security.CustomAuthenticationEntryPoint;
 import com.example.saudefacilagendamentoservice.infraestructure.services.UserDetailsServiceImpl;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
+import enums.TipoUsuarioEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

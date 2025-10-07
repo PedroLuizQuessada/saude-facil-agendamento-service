@@ -1,6 +1,6 @@
 package com.example.saudefacilagendamentoservice.datasources;
 
-import com.example.saudefacilagendamentoservice.dtos.UsuarioDto;
+import dtos.UsuarioDto;
 
 import java.util.Optional;
 

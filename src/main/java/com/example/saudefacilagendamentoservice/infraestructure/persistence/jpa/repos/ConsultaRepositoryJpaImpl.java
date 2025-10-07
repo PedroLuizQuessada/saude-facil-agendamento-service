@@ -1,9 +1,9 @@
 package com.example.saudefacilagendamentoservice.infraestructure.persistence.jpa.repos;
 
 import com.example.saudefacilagendamentoservice.datasources.ConsultaDataSource;
-import com.example.saudefacilagendamentoservice.dtos.ConsultaDto;
 import com.example.saudefacilagendamentoservice.infraestructure.persistence.jpa.mappers.ConsultaJpaDtoMapper;
 import com.example.saudefacilagendamentoservice.infraestructure.persistence.jpa.models.ConsultaJpa;
+import dtos.ConsultaDto;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;

@@ -2,7 +2,7 @@ package com.example.saudefacilagendamentoservice.infraestructure.services;
 
 import com.example.saudefacilagendamentoservice.controllers.LoginController;
 import com.example.saudefacilagendamentoservice.datasources.UsuarioDataSource;
-import com.example.saudefacilagendamentoservice.dtos.responses.LoginResponse;
+import dtos.responses.LoginResponse;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

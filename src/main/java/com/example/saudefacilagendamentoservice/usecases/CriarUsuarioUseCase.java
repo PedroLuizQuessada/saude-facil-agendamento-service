@@ -1,12 +1,12 @@
 package com.example.saudefacilagendamentoservice.usecases;
 
-import com.example.saudefacilagendamentoservice.dtos.UsuarioDto;
-import com.example.saudefacilagendamentoservice.dtos.requests.CriarUsuarioRequest;
 import com.example.saudefacilagendamentoservice.entities.Usuario;
 import com.example.saudefacilagendamentoservice.exceptions.BadArgumentException;
 import com.example.saudefacilagendamentoservice.exceptions.UsuarioNaoEncontradoException;
 import com.example.saudefacilagendamentoservice.gateways.UsuarioGateway;
 import com.example.saudefacilagendamentoservice.mappers.UsuarioMapper;
+import dtos.UsuarioDto;
+import dtos.requests.CriarUsuarioRequest;
 
 public class CriarUsuarioUseCase {
 

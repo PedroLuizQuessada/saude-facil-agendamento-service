@@ -1,8 +1,8 @@
 package com.example.saudefacilagendamentoservice.gateways;
 
 import com.example.saudefacilagendamentoservice.datasources.TokenDataSource;
-import com.example.saudefacilagendamentoservice.dtos.TokenDto;
 import com.example.saudefacilagendamentoservice.entities.Token;
+import dtos.TokenDto;
 
 public class TokenGateway {
 

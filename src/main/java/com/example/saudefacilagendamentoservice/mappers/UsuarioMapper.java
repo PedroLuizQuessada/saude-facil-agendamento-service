@@ -1,9 +1,9 @@
 package com.example.saudefacilagendamentoservice.mappers;
 
-import com.example.saudefacilagendamentoservice.dtos.UsuarioDto;
-import com.example.saudefacilagendamentoservice.dtos.requests.CriarUsuarioRequest;
-import com.example.saudefacilagendamentoservice.dtos.responses.UsuarioResponse;
 import com.example.saudefacilagendamentoservice.entities.Usuario;
+import dtos.UsuarioDto;
+import dtos.requests.CriarUsuarioRequest;
+import dtos.responses.UsuarioResponse;
 
 public class UsuarioMapper {
 

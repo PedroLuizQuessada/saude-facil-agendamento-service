@@ -1,10 +1,10 @@
 package com.example.saudefacilagendamentoservice.gateways;
 
 import com.example.saudefacilagendamentoservice.datasources.UsuarioDataSource;
-import com.example.saudefacilagendamentoservice.dtos.UsuarioDto;
 import com.example.saudefacilagendamentoservice.entities.Usuario;
 import com.example.saudefacilagendamentoservice.exceptions.UsuarioNaoEncontradoException;
 import com.example.saudefacilagendamentoservice.mappers.UsuarioMapper;
+import dtos.UsuarioDto;
 
 import java.util.Optional;
 

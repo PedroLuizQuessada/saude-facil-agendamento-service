@@ -1,7 +1,7 @@
 package com.example.saudefacilagendamentoservice.mappers;
 
-import com.example.saudefacilagendamentoservice.dtos.responses.TokenResponse;
 import com.example.saudefacilagendamentoservice.entities.Token;
+import dtos.responses.TokenResponse;
 
 public class TokenMapper {
 

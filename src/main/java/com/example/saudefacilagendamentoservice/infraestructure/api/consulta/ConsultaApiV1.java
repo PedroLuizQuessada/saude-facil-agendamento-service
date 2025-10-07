@@ -5,9 +5,9 @@ import com.example.saudefacilagendamentoservice.datasources.ConsultaDataSource;
 import com.example.saudefacilagendamentoservice.datasources.NotificacaoDataSource;
 import com.example.saudefacilagendamentoservice.datasources.TokenDataSource;
 import com.example.saudefacilagendamentoservice.datasources.UsuarioDataSource;
-import com.example.saudefacilagendamentoservice.dtos.requests.AlterarConsultaRequest;
-import com.example.saudefacilagendamentoservice.dtos.requests.CriarConsultaRequest;
-import com.example.saudefacilagendamentoservice.dtos.responses.ConsultaResponse;
+import dtos.requests.AlterarConsultaRequest;
+import dtos.requests.CriarConsultaRequest;
+import dtos.responses.ConsultaResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -59,8 +59,8 @@ public class ConsultaApiV1 {
     })
     @GetMapping("/{paciente-id}")
     public ResponseEntity<List<ConsultaResponse>> listarConsultasPorPacienteId(@PathVariable("paciente-id") Long pacienteId,
-                                                                 @RequestParam("page") int page,
-                                                                 @RequestParam("size") int size) {
+                                                                               @RequestParam("page") int page,
+                                                                               @RequestParam("size") int size) {
         log.info("Consultando consultas do usuário: {}", pacienteId);
         List<ConsultaResponse> restaurantResponseList = consultaController.listarConsultasPorPacienteId(page, size, pacienteId);
         log.info("Retornando {} consultas do usuário: {}", restaurantResponseList.size(), pacienteId);
@@ -145,7 +145,7 @@ public class ConsultaApiV1 {
                             schema = @Schema(implementation = ProblemDetail.class)))
     })
     @PostMapping
-    public ResponseEntity<ConsultaResponse> criarConsulta(@RequestBody @Valid CriarConsultaRequest request) {
+    public ResponseEntity<Void> criarConsulta(@RequestBody @Valid CriarConsultaRequest request) {
         log.info("Criando consulta para paciente: {}", request.paciente());
         consultaController.criarConsulta(request);
         log.info("Consulta criada para o paciente: {}", request.paciente());
@@ -169,13 +169,13 @@ public class ConsultaApiV1 {
                             schema = @Schema(implementation = ProblemDetail.class)))
     })
     @PutMapping("/{consulta-id}")
-    public ResponseEntity<ConsultaResponse> criarUsuario(@PathVariable("consulta-id") Long consultaId,
+    public ResponseEntity<Void> alterarConsulta(@PathVariable("consulta-id") Long consultaId,
                                                          @RequestBody @Valid AlterarConsultaRequest request) {
         log.info("Alterando consulta: {}", consultaId);
         consultaController.alterarConsulta(consultaId, request);
         log.info("Consulta {} alterada", consultaId);
 
         return ResponseEntity
-                .status(HttpStatus.CREATED).build();
+                .status(HttpStatus.OK).build();
     }
 }

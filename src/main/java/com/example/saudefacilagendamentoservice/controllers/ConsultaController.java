@@ -4,9 +4,6 @@ import com.example.saudefacilagendamentoservice.datasources.ConsultaDataSource;
 import com.example.saudefacilagendamentoservice.datasources.NotificacaoDataSource;
 import com.example.saudefacilagendamentoservice.datasources.TokenDataSource;
 import com.example.saudefacilagendamentoservice.datasources.UsuarioDataSource;
-import com.example.saudefacilagendamentoservice.dtos.requests.AlterarConsultaRequest;
-import com.example.saudefacilagendamentoservice.dtos.requests.CriarConsultaRequest;
-import com.example.saudefacilagendamentoservice.dtos.responses.ConsultaResponse;
 import com.example.saudefacilagendamentoservice.entities.Consulta;
 import com.example.saudefacilagendamentoservice.gateways.ConsultaGateway;
 import com.example.saudefacilagendamentoservice.gateways.NotificacaoGateway;
@@ -14,6 +11,9 @@ import com.example.saudefacilagendamentoservice.gateways.TokenGateway;
 import com.example.saudefacilagendamentoservice.gateways.UsuarioGateway;
 import com.example.saudefacilagendamentoservice.mappers.ConsultaMapper;
 import com.example.saudefacilagendamentoservice.usecases.*;
+import dtos.requests.AlterarConsultaRequest;
+import dtos.requests.CriarConsultaRequest;
+import dtos.responses.ConsultaResponse;
 
 import java.util.List;
 

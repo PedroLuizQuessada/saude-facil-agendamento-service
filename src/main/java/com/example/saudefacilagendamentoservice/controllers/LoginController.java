@@ -1,11 +1,11 @@
 package com.example.saudefacilagendamentoservice.controllers;
 
 import com.example.saudefacilagendamentoservice.datasources.UsuarioDataSource;
-import com.example.saudefacilagendamentoservice.dtos.responses.LoginResponse;
 import com.example.saudefacilagendamentoservice.entities.Usuario;
 import com.example.saudefacilagendamentoservice.gateways.UsuarioGateway;
 import com.example.saudefacilagendamentoservice.mappers.LoginMapper;
 import com.example.saudefacilagendamentoservice.usecases.LoginUseCase;
+import dtos.responses.LoginResponse;
 
 public class LoginController {
 

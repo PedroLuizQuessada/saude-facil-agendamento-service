@@ -1,8 +1,8 @@
 package com.example.saudefacilagendamentoservice.infraestructure.persistence.jpa.mappers;
 
-import com.example.saudefacilagendamentoservice.dtos.UsuarioDto;
-import com.example.saudefacilagendamentoservice.enums.TipoUsuarioEnum;
 import com.example.saudefacilagendamentoservice.infraestructure.persistence.jpa.models.UsuarioJpa;
+import dtos.UsuarioDto;
+import enums.TipoUsuarioEnum;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;

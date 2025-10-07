@@ -1,9 +1,9 @@
 package com.example.saudefacilagendamentoservice.infraestructure.persistence.jpa.repos;
 
 import com.example.saudefacilagendamentoservice.datasources.UsuarioDataSource;
-import com.example.saudefacilagendamentoservice.dtos.UsuarioDto;
 import com.example.saudefacilagendamentoservice.infraestructure.persistence.jpa.mappers.UsuarioJpaDtoMapper;
 import com.example.saudefacilagendamentoservice.infraestructure.persistence.jpa.models.UsuarioJpa;
+import dtos.UsuarioDto;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;

@@ -1,10 +1,10 @@
 package com.example.saudefacilagendamentoservice.infraestructure.services;
 
 import com.example.saudefacilagendamentoservice.datasources.NotificacaoDataSource;
-import com.example.saudefacilagendamentoservice.dtos.NotificacaoConsultaDto;
 import com.example.saudefacilagendamentoservice.infraestructure.exceptions.RabbitException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dtos.NotificacaoConsultaDto;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

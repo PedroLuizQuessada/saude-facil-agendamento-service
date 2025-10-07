@@ -1,8 +1,8 @@
 package com.example.saudefacilagendamentoservice.infraestructure.services;
 
 import com.example.saudefacilagendamentoservice.datasources.TokenDataSource;
-import com.example.saudefacilagendamentoservice.dtos.TokenDto;
 import com.example.saudefacilagendamentoservice.infraestructure.exceptions.InvalidJwtException;
+import dtos.TokenDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;

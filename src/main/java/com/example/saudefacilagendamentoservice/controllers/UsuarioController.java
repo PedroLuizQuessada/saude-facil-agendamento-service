@@ -2,14 +2,14 @@ package com.example.saudefacilagendamentoservice.controllers;
 
 import com.example.saudefacilagendamentoservice.datasources.TokenDataSource;
 import com.example.saudefacilagendamentoservice.datasources.UsuarioDataSource;
-import com.example.saudefacilagendamentoservice.dtos.requests.CriarUsuarioRequest;
-import com.example.saudefacilagendamentoservice.dtos.responses.TokenResponse;
 import com.example.saudefacilagendamentoservice.entities.Token;
 import com.example.saudefacilagendamentoservice.gateways.TokenGateway;
 import com.example.saudefacilagendamentoservice.gateways.UsuarioGateway;
 import com.example.saudefacilagendamentoservice.mappers.TokenMapper;
 import com.example.saudefacilagendamentoservice.usecases.CriarUsuarioUseCase;
 import com.example.saudefacilagendamentoservice.usecases.GerarTokenUseCase;
+import dtos.requests.CriarUsuarioRequest;
+import dtos.responses.TokenResponse;
 
 public class UsuarioController {
 

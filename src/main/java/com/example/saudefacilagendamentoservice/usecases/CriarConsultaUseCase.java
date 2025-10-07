@@ -1,7 +1,5 @@
 package com.example.saudefacilagendamentoservice.usecases;
 
-import com.example.saudefacilagendamentoservice.dtos.ConsultaDto;
-import com.example.saudefacilagendamentoservice.dtos.requests.CriarConsultaRequest;
 import com.example.saudefacilagendamentoservice.entities.Consulta;
 import com.example.saudefacilagendamentoservice.entities.Usuario;
 import com.example.saudefacilagendamentoservice.exceptions.UsuarioOcupadoException;
@@ -10,6 +8,8 @@ import com.example.saudefacilagendamentoservice.gateways.NotificacaoGateway;
 import com.example.saudefacilagendamentoservice.gateways.UsuarioGateway;
 import com.example.saudefacilagendamentoservice.mappers.ConsultaMapper;
 import com.example.saudefacilagendamentoservice.mappers.NotificacaoConsultaMapper;
+import dtos.ConsultaDto;
+import dtos.requests.CriarConsultaRequest;
 
 import java.util.List;
 

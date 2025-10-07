@@ -1,9 +1,9 @@
 package com.example.saudefacilagendamentoservice.mappers;
 
-import com.example.saudefacilagendamentoservice.dtos.NotificacaoConsultaDto;
-import com.example.saudefacilagendamentoservice.dtos.requests.AlterarConsultaRequest;
-import com.example.saudefacilagendamentoservice.dtos.requests.CriarConsultaRequest;
 import com.example.saudefacilagendamentoservice.entities.Usuario;
+import dtos.NotificacaoConsultaDto;
+import dtos.requests.AlterarConsultaRequest;
+import dtos.requests.CriarConsultaRequest;
 
 public class NotificacaoConsultaMapper {
 

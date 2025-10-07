@@ -1,7 +1,7 @@
 package com.example.saudefacilagendamentoservice.infraestructure.persistence.jpa.mappers;
 
-import com.example.saudefacilagendamentoservice.dtos.ConsultaDto;
 import com.example.saudefacilagendamentoservice.infraestructure.persistence.jpa.models.ConsultaJpa;
+import dtos.ConsultaDto;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;

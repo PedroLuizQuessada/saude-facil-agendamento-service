@@ -1,10 +1,10 @@
 package com.example.saudefacilagendamentoservice.mappers;
 
-import com.example.saudefacilagendamentoservice.dtos.ConsultaDto;
-import com.example.saudefacilagendamentoservice.dtos.requests.CriarConsultaRequest;
-import com.example.saudefacilagendamentoservice.dtos.responses.ConsultaResponse;
 import com.example.saudefacilagendamentoservice.entities.Consulta;
 import com.example.saudefacilagendamentoservice.entities.Usuario;
+import dtos.ConsultaDto;
+import dtos.requests.CriarConsultaRequest;
+import dtos.responses.ConsultaResponse;
 
 import java.util.Objects;
 

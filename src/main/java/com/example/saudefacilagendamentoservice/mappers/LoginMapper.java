@@ -1,7 +1,7 @@
 package com.example.saudefacilagendamentoservice.mappers;
 
-import com.example.saudefacilagendamentoservice.dtos.responses.LoginResponse;
 import com.example.saudefacilagendamentoservice.entities.Usuario;
+import dtos.responses.LoginResponse;
 
 public class LoginMapper {
 

@@ -1,10 +1,10 @@
 package com.example.saudefacilagendamentoservice.gateways;
 
 import com.example.saudefacilagendamentoservice.datasources.ConsultaDataSource;
-import com.example.saudefacilagendamentoservice.dtos.ConsultaDto;
 import com.example.saudefacilagendamentoservice.entities.Consulta;
 import com.example.saudefacilagendamentoservice.exceptions.ConsultaNaoEncontradaException;
 import com.example.saudefacilagendamentoservice.mappers.ConsultaMapper;
+import dtos.ConsultaDto;
 
 import java.time.LocalDateTime;
 import java.util.List;
