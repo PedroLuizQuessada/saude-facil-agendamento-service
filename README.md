@@ -11,6 +11,8 @@ Swagger disponível através do link: http://localhost:8080/saude-facil-agendame
 Disponível através do arquivo: tech-challenge.postman_collection.json
 
 # Execução
+- clonar repositório saude-facil-stub (https://github.com/PedroLuizQuessada/saude-facil-stub)
+- executar comando maven install
 - clonar repositório do projeto
 - acessar o diretório do projeto clonado via CMD
 - executar o comando “docker compose up -d” via CMD
