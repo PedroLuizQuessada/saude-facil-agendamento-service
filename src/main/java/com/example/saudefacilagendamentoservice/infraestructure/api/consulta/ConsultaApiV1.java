@@ -131,7 +131,8 @@ public class ConsultaApiV1 {
     }
 
     @Operation(summary = "Cria uma consulta",
-            description = "Requer autenticação e tipo de usuário 'MEDICO' ou 'ENFERMEIRO'")
+            description = "Requer autenticação e tipo de usuário 'MEDICO' ou 'ENFERMEIRO'",
+            security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses({
             @ApiResponse(responseCode = "201",
                     description = "Consulta criada com sucesso"),
@@ -155,7 +156,8 @@ public class ConsultaApiV1 {
     }
 
     @Operation(summary = "Altera uma consulta",
-            description = "Requer autenticação e tipo de usuário 'MEDICO' ou 'ENFERMEIRO'")
+            description = "Requer autenticação e tipo de usuário 'MEDICO' ou 'ENFERMEIRO'",
+            security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses({
             @ApiResponse(responseCode = "200",
                     description = "Consulta alterada com sucesso"),
