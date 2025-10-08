@@ -11,13 +11,11 @@ Swagger disponível através do link: http://localhost:8080/saude-facil-agendame
 Disponível através do arquivo: tech-challenge.postman_collection.json
 
 # Execução
-- clonar repositório saude-facil-stub (https://github.com/PedroLuizQuessada/saude-facil-stub)
-- executar comando maven install
 - clonar repositório do projeto
 - acessar o diretório do projeto clonado via CMD
 - executar o comando “docker compose up -d” via CMD
 
-Obs.: Para executar a aplicação via IDE é necessário descomentar as propriedades spring.datasource.url, spring.datasource.username e spring.datasource.password no arquivo application-jpa.properties.
-Obs2.: Em um ambiente corporativo, os diretórios "secrets" e "keys" seriam adicionados no .gitignore, porém como o projeto possui caráter educacional, optou-se por mantê-los versionados para garantir maior praticidade para execução do serviço
+Obs.: Para executar a aplicação via IDE é necessário descomentar as propriedades spring.datasource.url, spring.datasource.username e spring.datasource.password no arquivo application-jpa.properties.<br>
+Obs2.: Em um ambiente corporativo, os diretórios "secrets" e "keys" seriam adicionados no .gitignore, porém como o projeto possui caráter educacional, optou-se por mantê-los versionados para garantir maior praticidade para execução do serviço.
 
-Ao finalizar o passo a passo a aplicação estará disponível na porta 8080 do localhost (http://localhost:8080/saude-facil-agendamento-service) e seu banco de dados estará disponível na porta 3306 do localhost.
+Ao finalizar o passo a passo a aplicação estará disponível na porta 8080 do localhost (http://localhost:8080/saude-facil-agendamento-service), seu banco de dados estará disponível na porta 3306 do localhost e a plataforma web de gerenciamento do RabbitMQ estará disponível na porta 15672 do localhost (http://localhost:15672/#/).

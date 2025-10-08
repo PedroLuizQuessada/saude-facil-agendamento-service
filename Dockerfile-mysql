@@ -1,9 +1,5 @@
 FROM mysql:8.0 AS build
 
-WORKDIR /home/fiap
-
-RUN adduser fiap -D
-
-USER fiap
+WORKDIR /home/root
 
 CMD ["mysqld"]
