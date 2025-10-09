@@ -61,7 +61,7 @@ public class ConsultaJpa {
     }
 
     private void validarPrescricao(String prescricao) {
-        if (prescricao.length() > 255)
+        if (!Objects.isNull(prescricao) && prescricao.length() > 255)
             throw new BadJpaArgumentException("A prescrição deve possuir até 255 caracteres para ser armazenada no banco de dados.");
     }
 }

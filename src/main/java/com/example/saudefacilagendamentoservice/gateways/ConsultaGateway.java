@@ -33,8 +33,13 @@ public class ConsultaGateway {
         return consultaDtoList.stream().map(ConsultaMapper::toEntity).toList();
     }
 
-    public List<Consulta> listarConsultasPorHorarioEUsuarioId(LocalDateTime dataInicio, LocalDateTime dataFim, Long id) {
-        List<ConsultaDto> consultaDtoList = consultaDataSource.listarConsultasPorHorarioEUsuarioId(dataInicio, dataFim, id);
+    public List<Consulta> listarConsultasPorHorarioEMedicoId(LocalDateTime dataInicio, LocalDateTime dataFim, Long medicoId) {
+        List<ConsultaDto> consultaDtoList = consultaDataSource.listarConsultasPorHorarioEMedicoId(dataInicio, dataFim, medicoId);
+        return consultaDtoList.stream().map(ConsultaMapper::toEntity).toList();
+    }
+
+    public List<Consulta> listarConsultasPorHorarioEPacienteId(LocalDateTime dataInicio, LocalDateTime dataFim, Long pacienteId) {
+        List<ConsultaDto> consultaDtoList = consultaDataSource.listarConsultasPorHorarioEPacienteId(dataInicio, dataFim, pacienteId);
         return consultaDtoList.stream().map(ConsultaMapper::toEntity).toList();
     }
 

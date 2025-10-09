@@ -29,11 +29,11 @@ public class CriarConsultaUseCase {
         Usuario medico = usuarioGateway.encontrarUsuarioPorId(request.medico());
         Usuario paciente = usuarioGateway.encontrarUsuarioPorId(request.paciente());
 
-        List<Consulta> consultaListMedico = consultaGateway.listarConsultasPorHorarioEUsuarioId(request.data(), request.data().plusMinutes(30L), medico.getId());
+        List<Consulta> consultaListMedico = consultaGateway.listarConsultasPorHorarioEMedicoId(request.data().minusMinutes(29L), request.data().plusMinutes(29L), medico.getId());
         if (!consultaListMedico.isEmpty())
             throw new UsuarioOcupadoException("Médico já possui uma consulta agendada para este horário.");
 
-        List<Consulta> consultaListPaciente = consultaGateway.listarConsultasPorHorarioEUsuarioId(request.data(), request.data().plusMinutes(30L), paciente.getId());
+        List<Consulta> consultaListPaciente = consultaGateway.listarConsultasPorHorarioEPacienteId(request.data().minusMinutes(29L), request.data().plusMinutes(29L), paciente.getId());
         if (!consultaListPaciente.isEmpty())
             throw new UsuarioOcupadoException("Paciente já possui uma consulta agendada para este horário.");
 

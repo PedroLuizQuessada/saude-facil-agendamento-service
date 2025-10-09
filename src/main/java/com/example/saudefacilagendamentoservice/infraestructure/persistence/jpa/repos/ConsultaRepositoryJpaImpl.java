@@ -58,9 +58,19 @@ public class ConsultaRepositoryJpaImpl implements ConsultaDataSource {
     }
 
     @Override
-    public List<ConsultaDto> listarConsultasPorHorarioEUsuarioId(LocalDateTime dataInicio, LocalDateTime dataFim, Long id) {
+    public List<ConsultaDto> listarConsultasPorHorarioEMedicoId(LocalDateTime dataInicio, LocalDateTime dataFim, Long medicoId) {
+        Query query = entityManager.createQuery("SELECT consulta FROM ConsultaJpa consulta WHERE consulta.medico.id = :medicoId AND consulta.data >= :dataInicio AND consulta.data <= :dataFim ORDER BY consulta.id");
+        query.setParameter("medicoId", medicoId);
+        query.setParameter("dataInicio", dataInicio);
+        query.setParameter("dataFim", dataFim);
+        List<ConsultaJpa> consultaJpaList = query.getResultList();
+        return consultaJpaList.stream().map(consultaJpa -> consultaJpaDtoMapper.toConsultaDto(consultaJpa)).toList();
+    }
+
+    @Override
+    public List<ConsultaDto> listarConsultasPorHorarioEPacienteId(LocalDateTime dataInicio, LocalDateTime dataFim, Long pacienteId) {
         Query query = entityManager.createQuery("SELECT consulta FROM ConsultaJpa consulta WHERE consulta.paciente.id = :pacienteId AND consulta.data >= :dataInicio AND consulta.data <= :dataFim ORDER BY consulta.id");
-        query.setParameter("pacienteId", id);
+        query.setParameter("pacienteId", pacienteId);
         query.setParameter("dataInicio", dataInicio);
         query.setParameter("dataFim", dataFim);
         List<ConsultaJpa> consultaJpaList = query.getResultList();

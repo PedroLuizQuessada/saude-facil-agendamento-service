@@ -29,15 +29,14 @@ public class AlterarConsultaUseCase {
 
         Consulta consulta = consultaGateway.consultarConsultaPorId(id);
         Usuario medico = usuarioGateway.encontrarUsuarioPorId(request.medico());
-        Usuario paciente = usuarioGateway.encontrarUsuarioPorId(request.paciente());
 
-        List<Consulta> consultaListMedico = consultaGateway.listarConsultasPorHorarioEUsuarioId(request.data(), request.data().plusMinutes(30L), medico.getId());
+        List<Consulta> consultaListMedico = consultaGateway.listarConsultasPorHorarioEMedicoId(request.data().minusMinutes(29L), request.data().plusMinutes(29L), medico.getId());
         for (Consulta consultaMedico : consultaListMedico) {
             if (!Objects.equals(consultaMedico.getId(), id))
                 throw new UsuarioOcupadoException("Médico já possui uma consulta agendada para este horário.");
         }
 
-        List<Consulta> consultaListPaciente = consultaGateway.listarConsultasPorHorarioEUsuarioId(request.data(), request.data().plusMinutes(30L), paciente.getId());
+        List<Consulta> consultaListPaciente = consultaGateway.listarConsultasPorHorarioEPacienteId(request.data().minusMinutes(29L), request.data().plusMinutes(29L), consulta.getPaciente().getId());
         for (Consulta consultaPaciente : consultaListPaciente) {
             if (!Objects.equals(consultaPaciente.getId(), id))
                 throw new UsuarioOcupadoException("Paciente já possui uma consulta agendada para este horário.");
@@ -48,6 +47,6 @@ public class AlterarConsultaUseCase {
         consulta.setPrescricao(request.prescricao());
 
         consultaGateway.alterarConsulta(ConsultaMapper.toDto(consulta));
-        notificacaoGateway.notificarConsulta(NotificacaoConsultaMapper.toDto(paciente, medico, request));
+        notificacaoGateway.notificarConsulta(NotificacaoConsultaMapper.toDto(consulta.getPaciente(), medico, request));
     }
 }

@@ -10,7 +10,8 @@ public interface ConsultaDataSource {
     List<ConsultaDto> listarConsultasPorPacienteId(int page, int size, Long id);
     List<ConsultaDto> listarConsultasFuturasPorPacienteId(int page, int size, Long id);
     List<ConsultaDto> listarConsultasPorPacienteEmail(int page, int size, String email);
-    List<ConsultaDto> listarConsultasPorHorarioEUsuarioId(LocalDateTime dataInicio, LocalDateTime dataFim, Long id);
+    List<ConsultaDto> listarConsultasPorHorarioEMedicoId(LocalDateTime dataInicio, LocalDateTime dataFim, Long medicoId);
+    List<ConsultaDto> listarConsultasPorHorarioEPacienteId(LocalDateTime dataInicio, LocalDateTime dataFim, Long pacienteId);
     void criarConsulta(ConsultaDto consultaDto);
     Optional<ConsultaDto> consultarConsultaPorId(Long id);
     void alterarConsulta(ConsultaDto consultaDto);
